@@ -1,0 +1,20 @@
+Main
+Figure
+Figcaption
+Image
+Html
+Head
+Body
+Title
+Section
+List
+Unordered list
+Ordered list 
+Footer
+Emphasis
+Strong
+Paragraph
+Heading1
+Heading2
+Heading3
+Doctype

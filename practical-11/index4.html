@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Float&Clear</title>
+    <style>
+        .cards {
+            border: 2px solid rgb(0, 0, 0);
+        }
+        .card{
+            border: 2px solid rgb(175, 33, 33);
+        }
+        img{
+            float:left;
+        }
+        .card:nth-child(3){
+            background-color:rgb(69, 221, 221);
+            clear:both;
+        }
+            
+
+       
+    </style>
+</head>
+<body>
+    <div class="cards">
+        <img src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?cs=srgb&dl=daylight-environment-forest-459225.jpg&fm=jpg" alt="" height="400px" width="500px" >
+        <div class="card">
+            <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium, odio. A aliquid velit eveniet exercitationem eos repellendus saepe architecto inventore.</p>
+        </div>
+        <div class="card">
+            Lorem, ipsum dolohttps://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?cs=srgb&dl=daylight-environment-forest-459225.jpg&fm=jpgr sit amet consectetur adipisicing elit. Praesentium, odio. A aliquid velit eveniet exercitationem eos repellendus saepe architecto inventore.
+        </div>
+        <div class="card">
+            card 3
+        </div>
+    </div>
+</body>
+</html>

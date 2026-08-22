@@ -1,0 +1,9 @@
+body{
+    background-color: rgb(229, 243, 165);
+}
+promt{
+    color: rgb(159, 210, 255);
+}
+td,thread,htody,tfoot,th{
+    border: 2px rgb(247, 0, 0);
+}

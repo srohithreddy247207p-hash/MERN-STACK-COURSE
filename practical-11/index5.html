@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More about Css selectors</title>
+    <style>
+        .box:first-child{
+            background-color:#836969;
+        }
+        .boxes *{
+            color:rgb(192, 155, 155);
+            border:2px solid rgb(230, 154, 154);
+        }
+        .box::first-line{
+            color:rgb(27, 27, 27);
+        }
+        .boxes::before{
+            content:"Hey bot";
+            color:rgb(0, 0, 255);
+            
+        }
+        .boxes::after{
+            content:"Hey bot";
+            color:rgb(0, 255, 179);
+        }   
+        .box::first-letter{
+            color:rgb(255, 0, 255);
+            font-size:30px;
+        }
+        input::placeholder{
+            color:rgb(167, 11, 11);
+            background-color:violet;
+        }
+        ::selection{
+            color:rgb(255, 255, 255);
+            background-color:rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="boxes">
+        <div class="box">i am first</div>
+        <div class="box">i am second</div>
+        <div class="box">i am third</div>
+        <input type="text" name="" id="" placeholder="Enter your name">
+    </div>
+</body>
+</html>

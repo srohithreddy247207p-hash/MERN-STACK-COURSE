@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sizes and values</title>
+    <style>
+        .box{
+            border: 2px solid red ;
+            /* width 2048px; */
+            width: 80vw;
+            height: 10vh;
+            text-align: center;
+            margin:  23px auto ;
+            box-sizing: border-box;
+            background-color: rgb(0, 38, 255);
+            color:aliceblue;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }.container{
+            border: 2px solid red;
+            width: 80vw;
+            /* height: 50vh; */
+            margin: 23px auto;
+            box-sizing: border-box;
+            background-color: blue;
+            color: aliceblue;
+            /* min-width: 80vh; */
+            font-size: 18px;
+        }
+        .container>div{
+            font-size: em;
+            border: 2px solid greenyellow;
+            width: 50%;
+        }
+        .container > div> div{
+            border: 2px solid aqua;
+            width: 50%;
+
+        }
+        .mycont{
+            border: 2px solid rgb(0, 0, 0);
+            width: 80vw;
+            margin: 23px auto;
+            box-sizing: border-box;
+            color: black;
+            font-size: 22px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1> This is a heading</h1>
+        <h2>This is a box</h2>
+    </div>
+    <div class="container">
+        <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi voluptates temporibus dolores, magni tempore tempora consequatur cupiditate sapiente necessitatibus reprehenderit numquam veniam veritatis incidunt, hic ab nisi. Nulla ipsum obcaecati dolore, quisquam excepturi quasi cumque libero ea rerum ratione, ut pariatur rem provident voluptates repudiandae doloribus est voluptas distinctio minus quia, dolores repellat ipsam animi! Similique laboriosam ullam neque veniam dignissibusdam quidem minima rem esse corrupti! Ad dolore exercitationem temporibus minus, tempora possimus neque, provident quo, aliquid voluptatum vero! Optio quas nam voluptatem vel ad dolore facilis nostrum ex suscipit, eligendi, accusantium numquam nisi corrupti explicabo in repellendus, exercitationem natus magni? Tenetur consequuntur eveniet debitis suscipit minus nemo aspernatur soluta quo magnam ad exercitationem repudiandae quos sed nihil, libero esse culpa nesciunt nobis nisi error id maiores! Nam ut itaque exercitationem possimus. Error, quo.
+            <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, maiores quasi. Libero explicabo harum alias, deserunt error perferendis repellendus quos recusandae enim cupiditate consequatur vitae nobis nihil quod delectus ipsum mollitia exercitationem, fugit doloribus praesentium reiciendis. Maxime, aliquid mollitia! Doloribus exercitationem dolore fuga officiis dolorem similique accusamus dicta, quos aliquid.
+            </div>
+        </div>
+    </div>
+    <div class="mycont">
+        I am another container.
+    </div>
+</body>
+</html>

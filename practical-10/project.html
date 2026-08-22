@@ -1,0 +1,1656 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WildRoots Zoo | Zoo Information</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #2E7D32;
+      --secondary: #4CAF50;
+      --accent: #FFC107;
+      --bg: #F5F7F2;
+      --surface: #FFFFFF;
+      --text-dark: #263238;
+      --text-muted: #5A6A70;
+      --shadow: 0 22px 50px rgba(38, 50, 56, 0.08);
+      --radius: 28px;
+      --radius-sm: 18px;
+      --transition: 0.25s ease;
+      --max-width: 1220px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    strong {
+      color: var(--text-dark);
+    }
+
+    .container {
+      width: min(var(--max-width), 100%);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245, 247, 242, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(46, 125, 50, 0.12);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--surface);
+      box-shadow: 0 16px 30px rgba(46, 125, 50, 0.25);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    nav a {
+      position: relative;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color var(--transition);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: var(--secondary);
+      transition: width var(--transition);
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--primary);
+    }
+
+    nav a:hover::after,
+    nav a:focus-visible::after {
+      width: 100%;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      align-items: center;
+      padding: 4rem 0 6rem;
+      background: linear-gradient(180deg, rgba(10, 33, 17, 0.55), rgba(46, 125, 50, 0.18)), url('https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg') center/cover no-repeat;
+      color: #FFFFFF;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(46, 125, 50, 0.35), rgba(255, 193, 7, 0.08));
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+      border-radius: 36px;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
+      animation: fadeInUp 1.2s ease both;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.4rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 5vw, 4.8rem);
+      line-height: 0.95;
+      margin-bottom: 1rem;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-text {
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+      opacity: 0.96;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 1rem 1.8rem;
+      border-radius: 999px;
+      border: none;
+      font-weight: 700;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--surface);
+      box-shadow: 0 18px 35px rgba(46, 125, 50, 0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.18);
+      color: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .hero-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem 1.4rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      font-weight: 500;
+      color: #F3F5F0;
+    }
+
+    .hero-note span {
+      font-size: 1.2rem;
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section--light {
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .section-heading {
+      display: grid;
+      gap: 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 2.8vw, 3.4rem);
+      margin: 0;
+    }
+
+    .section-heading p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--text-muted);
+    }
+
+    .divider {
+      width: 80px;
+      height: 4px;
+      border-radius: 999px;
+      margin: 0 auto;
+      background: linear-gradient(90deg, var(--secondary), var(--accent));
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(46, 125, 50, 0.1);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 45px rgba(46, 125, 50, 0.14);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    .highlight {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .about-grid img {
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0 0;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .feature-list li::before {
+      content: '🌿';
+      margin-top: 0.2rem;
+      font-size: 1rem;
+    }
+
+    .info-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .info-grid .info-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .info-card small {
+      color: var(--secondary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .info-card p {
+      margin: 0.5rem 0 0;
+    }
+
+    .animals-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .animal-card {
+      overflow: hidden;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,247,242,0.98));
+      border: 1px solid rgba(46, 125, 50, 0.12);
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .animal-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 55px rgba(46, 125, 50, 0.16);
+    }
+
+    .animal-card img {
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .animal-card-content {
+      padding: 1.5rem;
+    }
+
+    .animal-card-content h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.35rem;
+    }
+
+    .animal-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .animal-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .animal-detail {
+      display: grid;
+      gap: 0.7rem;
+      margin-bottom: 1rem;
+      color: var(--text-muted);
+    }
+
+    .animal-detail strong {
+      color: var(--text-dark);
+    }
+
+    .animal-fact {
+      padding: 1rem;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(76,175,80,0.12), rgba(255,193,7,0.13));
+      color: #334d2f;
+      font-weight: 600;
+    }
+
+    .categories-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    }
+
+    .category-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(245,247,242,0.95));
+      border-radius: 28px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(46, 125, 50, 0.1);
+      transition: transform var(--transition);
+    }
+
+    .category-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .category-card .icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(76, 175, 80, 0.12);
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .category-card h4 {
+      margin: 0 0 0.9rem;
+      font-size: 1.2rem;
+    }
+
+    .category-card p {
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    .cards-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .stat-card {
+      padding: 2rem;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(245,247,242,0.96));
+      border: 1px solid rgba(46, 125, 50, 0.1);
+      box-shadow: var(--shadow);
+      transition: transform var(--transition);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .stat-card .stat-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(46, 125, 50, 0.12);
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .stat-card h4 {
+      margin: 0 0 0.8rem;
+      font-size: 1.25rem;
+    }
+
+    .stat-card p {
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .table th,
+    .table td {
+      padding: 1.2rem 1.1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(46, 125, 50, 0.08);
+    }
+
+    .table th {
+      background: rgba(46, 125, 50, 0.08);
+      font-weight: 700;
+    }
+
+    .table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .gallery-grid {
+      display: grid;
+      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .gallery-item {
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+      transform: translateY(0);
+      transition: transform var(--transition);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .gallery-item img {
+      transition: transform var(--transition);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .facts-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .fact-card {
+      background: linear-gradient(135deg, rgba(76,175,80,0.08), rgba(255,193,7,0.12));
+      border-radius: 30px;
+      padding: 1.8rem;
+      border: 1px solid rgba(255, 193, 7, 0.15);
+      box-shadow: var(--shadow);
+      transition: transform var(--transition);
+    }
+
+    .fact-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .fact-card .fact-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: inline-flex;
+      width: 58px;
+      height: 58px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      background: rgba(255,193,7,0.12);
+    }
+
+    .fact-card h4 {
+      margin: 0 0 0.8rem;
+      font-size: 1.2rem;
+    }
+
+    .fact-card p {
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    .visitor-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .visitor-card {
+      background: var(--surface);
+      border-radius: 28px;
+      padding: 1.8rem;
+      border: 1px solid rgba(46, 125, 50, 0.1);
+      box-shadow: var(--shadow);
+      transition: transform var(--transition);
+    }
+
+    .visitor-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .visitor-card h4 {
+      margin: 0 0 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    .visitor-card p {
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    .visitor-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .visitor-list li {
+      display: flex;
+      gap: 0.8rem;
+      align-items: baseline;
+      color: var(--text-muted);
+    }
+
+    .visitor-list li strong {
+      width: 6rem;
+      color: var(--text-dark);
+    }
+
+    .faq-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    details {
+      border-radius: 24px;
+      background: var(--surface);
+      padding: 1rem;
+      border: 1px solid rgba(46, 125, 50, 0.1);
+      box-shadow: var(--shadow);
+    }
+
+    summary {
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details[open] {
+      background: linear-gradient(180deg, rgba(76,175,80,0.08), rgba(255,255,255,0.96));
+    }
+
+    details p {
+      margin: 1rem 0 0;
+      color: var(--text-muted);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: start;
+    }
+
+    .contact-panel {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border-radius: 28px;
+      padding: 2rem;
+      border: 1px solid rgba(46, 125, 50, 0.1);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-card p,
+    .contact-card a {
+      margin: 0.4rem 0 0;
+      color: var(--text-muted);
+    }
+
+    .contact-form {
+      background: linear-gradient(180deg, rgba(246,249,244,0.96), rgba(255,255,255,0.98));
+      border-radius: 32px;
+      padding: 2rem;
+      border: 1px solid rgba(46, 125, 50, 0.1);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-form label {
+      display: grid;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      border: 1px solid rgba(46, 125, 50, 0.16);
+      border-radius: 18px;
+      padding: 0.95rem 1rem;
+      background: #fff;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(76,175,80,0.12);
+    }
+
+    .contact-form textarea {
+      min-height: 170px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      width: fit-content;
+      padding: 1rem 1.8rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--surface);
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .contact-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(46, 125, 50, 0.22);
+    }
+
+    footer {
+      padding: 3rem 0 2rem;
+      background: #EDF3EA;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-bottom: 2rem;
+    }
+
+    .footer-card h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .footer-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .footer-card a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(46, 125, 50, 0.12);
+      padding-top: 1.5rem;
+    }
+
+    .footer-bottom a {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(46, 125, 50, 0.12);
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .shadow-soft {
+      box-shadow: 0 18px 40px rgba(46, 125, 50, 0.1);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        min-height: 80vh;
+      }
+
+      .hero-content {
+        padding: 2.5rem 1.2rem;
+      }
+
+      .hero-title {
+        font-size: clamp(2.4rem, 6vw, 3.6rem);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .table th,
+      .table td {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .hero-content {
+        border-radius: 24px;
+      }
+
+      .section {
+        padding: 3rem 0;
+      }
+
+      .section-heading h2 {
+        font-size: 2.4rem;
+      }
+
+      nav {
+        gap: 0.9rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        min-height: auto;
+      }
+
+      .header-inner {
+        gap: 0.8rem;
+      }
+
+      .hero-text {
+        font-size: 1rem;
+      }
+
+      .visitor-list li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .table {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <a href="#home" class="logo">
+        <span>🐾</span>
+        WildRoots Zoo
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#importance">Importance</a>
+        <a href="#animals">Animals</a>
+        <a href="#categories">Categories</a>
+        <a href="#conservation">Conservation</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <div class="hero-tag">Wildlife Education • Conservation • Adventure</div>
+        <h1 class="hero-title">Explore the Wild at WildRoots Zoo</h1>
+        <p class="hero-text">Immerse yourself in a modern wildlife sanctuary built for conservation, education, and unforgettable animal encounters.</p>
+        <div class="hero-actions">
+          <a href="#animals" class="btn btn-primary">Discover Animals</a>
+          <a href="#visitor" class="btn btn-secondary">Plan Your Visit</a>
+        </div>
+        <div class="hero-note">
+          <span>🌿</span>
+          Protecting endangered species with premium care and meaningful visitor learning.
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div class="divider"></div>
+          <h2>About WildRoots Zoo</h2>
+          <p>WildRoots Zoo is a wildlife information hub and conservation-oriented sanctuary welcoming families, students, and nature lovers.</p>
+        </div>
+        <div class="grid-2 about-grid">
+          <div class="card">
+            <h3>Our mission is wildlife conservation</h3>
+            <p>We create immersive habitats and support rescue programs while teaching visitors about animal welfare, biodiversity, and sustainable habitats.</p>
+            <ul class="feature-list">
+              <li><strong>Natural habitats</strong> designed for animal comfort and enrichment.</li>
+              <li><strong>Education programs</strong> for schools and families.</li>
+              <li><strong>Rescue efforts</strong> for endangered species.</li>
+              <li><strong>Community outreach</strong> for conservation awareness.</li>
+            </ul>
+          </div>
+          <div>
+            <img src="https://tse4.mm.bing.net/th/id/OIP.m_oVeg11lrjUVKK0qk9MAQHaEm?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Giraffe in a zoo habitat during daytime" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="importance">
+      <div class="container">
+        <div class="section-heading">
+          <div class="divider"></div>
+          <h2>Why Zoos Matter</h2>
+          <p>Modern zoos are critical for conservation, research, and public awareness about wildlife challenges.</p>
+        </div>
+        <div class="cards-grid">
+          <article class="card">
+            <span class="badge">Conservation</span>
+            <h3>Protect endangered animals</h3>
+            <p>Zoos care for species with critical population declines and offer breeding programs to restore numbers safely.</p>
+          </article>
+          <article class="card">
+            <span class="badge">Education</span>
+            <h3>Inspire future conservationists</h3>
+            <p>Visitors learn about animal biology, habitats, and climate impacts through engaging exhibits and live talks.</p>
+          </article>
+          <article class="card">
+            <span class="badge">Research</span>
+            <h3>Support scientific discovery</h3>
+            <p>Animal care teams observe behavior, nutrition, and health to improve survival strategies in wild and captive settings.</p>
+          </article>
+          <article class="card">
+            <span class="badge">Habitat care</span>
+            <h3>Preserve natural ecosystems</h3>
+            <p>Zoos promote habitat protection initiatives and partner with conservation groups worldwide.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light" id="animals">
+      <div class="container">
+        <div class="section-heading">
+          <div class="divider"></div>
+          <h2>Featured Animals</h2>
+          <p>Meet our key residents across habitats, from majestic mammals to vibrant marine life.</p>
+        </div>
+        <div class="animals-grid">
+          <article class="animal-card">
+            <img src="https://thumbs.dreamstime.com/b/african-lion-lying-grass-majestic-calm-realistic-animal-photography-african-lion-lying-grass-majestic-calm-345878482.jpg" alt="African lion lying in the grass" />
+            <div class="animal-card-content">
+              <h3>African Lion</h3>
+              <div class="animal-meta">
+                <span>Panthera leo</span>
+                <span>Habitat: Savanna</span>
+              </div>
+              <div class="animal-detail">
+                <p><strong>Diet:</strong> Carnivore</p>
+                <p><strong>Lifespan:</strong> 10–14 years</p>
+                <p><strong>Status:</strong> Vulnerable</p>
+              </div>
+              <p class="animal-fact">Fact: Lions live in social groups called prides and are the only cats that do so.</p>
+            </div>
+          </article>
+          <article class="animal-card">
+            <img src="https://parrots.org/wp-content/uploads/1990/11/Scarlet-Macaw-Freder-Getty-768x576.png" alt="Scarlet macaw perched on a branch" />
+            <div class="animal-card-content">
+              <h3>Scarlet Macaw</h3>
+              <div class="animal-meta">
+                <span>Ara macao</span>
+                <span>Habitat: Rainforest</span>
+              </div>
+              <div class="animal-detail">
+                <p><strong>Diet:</strong> Fruits & seeds</p>
+                <p><strong>Lifespan:</strong> 40–50 years</p>
+                <p><strong>Status:</strong> Least Concern</p>
+              </div>
+              <p class="animal-fact">Fact: Macaws use their powerful beaks to crack nuts and climb tree branches.</p>
+            </div>
+          </article>
+          <article class="animal-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/African_Bush_Elephant.jpg" alt="Elephant walking through the grass" />
+            <div class="animal-card-content">
+              <h3>Asian Elephant</h3>
+              <div class="animal-meta">
+                <span>Elephas maximus</span>
+                <span>Habitat: Forest</span>
+              </div>
+              <div class="animal-detail">
+                <p><strong>Diet:</strong> Herbivore</p>
+                <p><strong>Lifespan:</strong> 60–70 years</p>
+                <p><strong>Status:</strong> Endangered</p>
+              </div>
+              <p class="animal-fact">Fact: Elephants communicate using low-frequency sounds humans often cannot hear.</p>
+            </div>
+          </article>
+          <article class="animal-card">
+            <img src="https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/t/n/tnc_765560001.jpg?crop=0%2C233%2C4000%2C2200&wid=4000&hei=2200&scl=1.0" alt="Sea turtle swimming underwater" />
+            <div class="animal-card-content">
+              <h3>Sea Turtle</h3>
+              <div class="animal-meta">
+                <span>Chelonia mydas</span>
+                <span>Habitat: Ocean</span>
+              </div>
+              <div class="animal-detail">
+                <p><strong>Diet:</strong> Seagrass</p>
+                <p><strong>Lifespan:</strong> 60–80 years</p>
+                <p><strong>Status:</strong> Endangered</p>
+              </div>
+              <p class="animal-fact">Fact: Sea turtles return to the exact beach where they were born to lay eggs.</p>
+            </div>
+          </article>
+          <article class="animal-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Giraffe_standing.jpg" alt="Giraffe standing in tall grass" />
+            <div class="animal-card-content">
+              <h3>Masai Giraffe</h3>
+              <div class="animal-meta">
+                <span>Giraffa camelopardalis</span>
+                <span>Habitat: Grassland</span>
+              </div>
+              <div class="animal-detail">
+                <p><strong>Diet:</strong> Leaves</p>
+                <p><strong>Lifespan:</strong> 25 years</p>
+                <p><strong>Status:</strong> Vulnerable</p>
+              </div>
+              <p class="animal-fact">Fact: A giraffe's neck contains the same number of vertebrae as a human neck.</p>
+            </div>
+          </article>
+          <article class="animal-card">
+            <img src="https://wallup.net/wp-content/uploads/2019/09/893535-jaguar-animals-wallpapers.jpg" />
+            <div class="animal-card-content">
+              <h3>Jaguar</h3>
+              <div class="animal-meta">
+                <span>Panthera onca</span>
+                <span>Habitat: Tropical forest</span>
+              </div>
+              <div class="animal-detail">
+                <p><strong>Diet:</strong> Carnivore</p>
+                <p><strong>Lifespan:</strong> 12–15 years</p>
+                <p><strong>Status:</strong> Near Threatened</p>
+              </div>
+              <p class="animal-fact">Fact: Jaguars are strong swimmers and often hunt in rivers and lakes.</p>
+            </div>
+          </article>
+          <article class="animal-card">
+            <img src="https://i.natgeofe.com/k/a27c5d1f-9f3e-49f9-ae6d-a2b349c283c7/poison-dart-frog-orange-blue_4x3.jpg" alt="Bright blue poison dart frog on a leaf" />
+            <div class="animal-card-content">
+              <h3>Poison Dart Frog</h3>
+              <div class="animal-meta">
+                <span>Dendrobatidae</span>
+                <span>Habitat: Rainforest</span>
+              </div>
+              <div class="animal-detail">
+                <p><strong>Diet:</strong> Insects</p>
+                <p><strong>Lifespan:</strong> 10–15 years</p>
+                <p><strong>Status:</strong> Varies by species</p>
+              </div>
+              <p class="animal-fact">Fact: Their bright colors warn predators of their toxic skin secretions.</p>
+            </div>
+          </article>
+          <article class="animal-card">
+            <img src="https://cdn.download.ams.birds.cornell.edu/api/v1/asset/54167691/1800" />
+            <div class="animal-card-content">
+              <h3>Greater Flamingo</h3>
+              <div class="animal-meta">
+                <span>Phoenicopterus roseus</span>
+                <span>Habitat: Wetlands</span>
+              </div>
+              <div class="animal-detail">
+                <p><strong>Diet:</strong> Brine shrimp</p>
+                <p><strong>Lifespan:</strong> 20–30 years</p>
+                <p><strong>Status:</strong> Least Concern</p>
+              </div>
+              <p class="animal-fact">Fact: Flamingos get their pink color from pigments in their food.</p>
+            </div>
+          </article>
+          <article class="animal-card">
+            <img src="https://wallpapercave.com/wp/wp11007210.jpg" />
+            <div class="animal-card-content">
+              <h3>Bottlenose Dolphin</h3>
+              <div class="animal-meta">
+                <span>Tursiops truncatus</span>
+                <span>Habitat: Aquarium</span>
+              </div>
+              <div class="animal-detail">
+                <p><strong>Diet:</strong> Fish</p>
+                <p><strong>Lifespan:</strong> 40–50 years</p>
+                <p><strong>Status:</strong> Least Concern</p>
+              </div>
+              <p class="animal-fact">Fact: Dolphins are highly intelligent and use echolocation to navigate underwater.</p>
+            </div>
+          </article>
+          <article class="animal-card">
+            <img src="https://wallpapercave.com/wp/wp2462311.jpg" alt="White rhinoceros walking in a grassland habitat" />
+            <div class="animal-card-content">
+              <h3>White Rhino</h3>
+              <div class="animal-meta">
+                <span>Ceratotherium simum</span>
+                <span>Habitat: Grassland</span>
+              </div>
+              <div class="animal-detail">
+                <p><strong>Diet:</strong> Herbivore</p>
+                <p><strong>Lifespan:</strong> 35–45 years</p>
+                <p><strong>Status:</strong> Near Threatened</p>
+              </div>
+              <p class="animal-fact">Fact: Rhinos have thick skin that acts like armor and remarkable hearing.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="container">
+        <div class="section-heading">
+          <div class="divider"></div>
+          <h2>Animal Categories</h2>
+          <p>Our zoo features carefully curated habitats for all major animal groups.</p>
+        </div>
+        <div class="categories-grid">
+          <article class="category-card">
+            <div class="icon">🦁</div>
+            <h4>Mammals</h4>
+            <p>Large mammals including lions, elephants, giraffes, and meerkats are housed in spacious natural habitats.</p>
+          </article>
+          <article class="category-card">
+            <div class="icon">🦜</div>
+            <h4>Birds</h4>
+            <p>From tropical parrots to birds of prey, our aviaries showcase vibrant flight and feather diversity.</p>
+          </article>
+          <article class="category-card">
+            <div class="icon">🦎</div>
+            <h4>Reptiles</h4>
+            <p>Reptile houses offer safe environments for snakes, lizards, turtles, and crocodiles.</p>
+          </article>
+          <article class="category-card">
+            <div class="icon">🐸</div>
+            <h4>Amphibians</h4>
+            <p>Frogs, salamanders, and newts live in humid, climate-controlled habitats that mimic wetlands.</p>
+          </article>
+          <article class="category-card">
+            <div class="icon">🐬</div>
+            <h4>Aquatic Animals</h4>
+            <p>Marine exhibits include dolphins, sea turtles, reef fish, and interactive touch zones.</p>
+          </article>
+          <article class="category-card">
+            <div class="icon">🐝</div>
+            <h4>Insects</h4>
+            <p>Explore the miniature world of butterflies, beetles, and pollinators in our insectarium.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light" id="endangered">
+      <div class="container">
+        <div class="section-heading">
+          <div class="divider"></div>
+          <h2>Endangered Species</h2>
+          <p>Our conservation programs support species that need the most care and protection.</p>
+        </div>
+        <div class="cards-grid">
+          <article class="stat-card">
+            <div class="stat-icon">🦏</div>
+            <h4>Black Rhino</h4>
+            <p>Protected through habitat conservation and anti-poaching partnerships to restore population growth.</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon">🐅</div>
+            <h4>Tiger</h4>
+            <p>Join our breeding and education initiatives to raise awareness of tiger threats in the wild.</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon">🐘</div>
+            <h4>Asian Elephant</h4>
+            <p>Our rescue program cares for injured and orphaned elephants with veterinary support and enrichment.</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon">🐼</div>
+            <h4>Red Panda</h4>
+            <p>We help safeguard forest habitats and connect guests to smaller species conservation stories.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="facilities">
+      <div class="container">
+        <div class="section-heading">
+          <div class="divider"></div>
+          <h2>Zoo Facilities</h2>
+          <p>Enjoy premium amenities designed for comfort, learning, and family-friendly exploration.</p>
+        </div>
+        <div class="cards-grid">
+          <article class="stat-card">
+            <div class="stat-icon">☕</div>
+            <h4>Food Court</h4>
+            <p>Fresh local cuisine, healthy snacks, and shaded seating areas throughout the park.</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon">🅿️</div>
+            <h4>Parking</h4>
+            <p>Convenient parking with accessible spaces and EV charging for eco-friendly visitors.</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon">♿</div>
+            <h4>Accessibility</h4>
+            <p>Wheelchair-friendly paths, ramps, and accessible restrooms make the zoo easy to explore.</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon">🎒</div>
+            <h4>Visitor Center</h4>
+            <p>Information desks, lockers, educational displays, and souvenir shops are available on site.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light" id="shows">
+      <div class="container">
+        <div class="section-heading">
+          <div class="divider"></div>
+          <h2>Daily Animal Shows</h2>
+          <p>Plan your visit around our live presentations, feeding sessions, and interactive experiences.</p>
+        </div>
+        <table class="table" aria-label="Daily animal shows timetable">
+          <thead>
+            <tr>
+              <th>Show</th>
+              <th>Time</th>
+              <th>Location</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lion Feeding</td>
+              <td>11:00 AM</td>
+              <td>Safari Arena</td>
+              <td>Watch the pride enjoy a morning meal and learn about pride dynamics.</td>
+            </tr>
+            <tr>
+              <td>Elephant Bath</td>
+              <td>1:30 PM</td>
+              <td>Elephant Grove</td>
+              <td>See gentle giants bathe and hear keeper stories about elephant care.</td>
+            </tr>
+            <tr>
+              <td>Bird Flight Show</td>
+              <td>3:00 PM</td>
+              <td>Aviary Theater</td>
+              <td>Experience colorful birds of prey and parrots in a soaring performance.</td>
+            </tr>
+            <tr>
+              <td>Dolphin Splash</td>
+              <td>4:30 PM</td>
+              <td>Aquatic Arena</td>
+              <td>Enjoy playful dolphins demonstrating agility and intelligence.</td>
+            </tr>
+            <tr>
+              <td>Reptile Talk</td>
+              <td>5:45 PM</td>
+              <td>Reptile House</td>
+              <td>Learn fascinating facts about snakes, turtles, and lizards.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="conservation">
+      <div class="container">
+        <div class="section-heading">
+          <div class="divider"></div>
+          <h2>Wildlife Conservation</h2>
+          <p>Our conservation work combines rescue, breeding, habitat protection, and education.</p>
+        </div>
+        <div class="cards-grid">
+          <article class="stat-card">
+            <div class="stat-icon">🌱</div>
+            <h4>Rescue Programs</h4>
+            <p>WildRoots Zoo rescues injured and orphaned wildlife for rehabilitation and release where possible.</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon">🐣</div>
+            <h4>Breeding Projects</h4>
+            <p>Scientific breeding programs help restore population numbers for endangered species.</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon">🌍</div>
+            <h4>Habitat Protection</h4>
+            <p>We participate in habitat restoration projects and partner with conservation organizations.</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon">📣</div>
+            <h4>Awareness Campaigns</h4>
+            <p>Educational campaigns inspire guests to support wildlife conservation in their daily lives.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light" id="gallery">
+      <div class="container">
+        <div class="section-heading">
+          <div class="divider"></div>
+          <h2>Image Gallery</h2>
+          <p>A responsive gallery showcasing zoo habitats, animals, and memorable visitor moments.</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://thumbs.dreamstime.com/b/tiger-resting-peacefully-natural-habitat-conservation-focused-tranquil-scene-tiger-resting-peacefully-its-natural-432550634.jpg" alt="Tiger resting in a natural habitat" />
+          </div>
+          <div class="gallery-item">
+            <img src="https://thumbs.dreamstime.com/b/bornean-orangutan-rainforest-sumatra-indonesia-sitting-trees-natural-tropical-habitat-wildlife-photography-showing-419732434.jpg?w=992" alt="Orangutan sitting in rainforest foliage" />
+          </div>
+          <div class="gallery-item">
+            <img src="https://img.freepik.com/premium-photo/vibrant-zebras-grazing-endless-open-grasslands_1079150-130991.jpg" alt="Zebras grazing in open grassland" />
+          </div>
+          <div class="gallery-item">
+            <img src="https://thumbs.dreamstime.com/b/majestic-elephant-walking-hay-trunk-likely-asian-walks-gracefully-across-sandy-terrain-its-powerful-legs-carrying-430471844.jpg?w=768" alt="Elephant walking with its trunk down" />
+          </div>
+          <div class="gallery-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Giraffe_standing.jpg" alt="Giraffe eating leaves from a tall tree" />
+          </div>
+          <div class="gallery-item">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.EvobEWVumR09v0walBvzjQHaHa?r=0&w=640&h=640&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Flamingos standing in shallow water" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="facts">
+      <div class="container">
+        <div class="section-heading">
+          <div class="divider"></div>
+          <h2>Fun Facts</h2>
+          <p>Discover surprising wildlife facts that entertain and educate visitors of all ages.</p>
+        </div>
+        <div class="facts-grid">
+          <article class="fact-card">
+            <div class="fact-icon">⚡</div>
+            <h4>Fastest Land Animal</h4>
+            <p>Cheetahs can reach speeds of up to 70 miles per hour in short bursts.</p>
+          </article>
+          <article class="fact-card">
+            <div class="fact-icon">🐋</div>
+            <h4>Largest Mammal</h4>
+            <p>The blue whale is the largest animal ever known, growing up to 100 feet long.</p>
+          </article>
+          <article class="fact-card">
+            <div class="fact-icon">🦒</div>
+            <h4>Tallest Animal</h4>
+            <p>Giraffes can grow taller than 18 feet, with necks longer than 6 feet.</p>
+          </article>
+          <article class="fact-card">
+            <div class="fact-icon">💪</div>
+            <h4>Strongest Animal</h4>
+            <p>Gorillas can lift nearly 10 times their body weight using powerful arms.</p>
+          </article>
+          <article class="fact-card">
+            <div class="fact-icon">🧠</div>
+            <h4>Smartest Animal</h4>
+            <p>Dolphins are recognized for advanced problem solving, memory, and social skills.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light" id="visitor">
+      <div class="container">
+        <div class="section-heading">
+          <div class="divider"></div>
+          <h2>Visitor Information</h2>
+          <p>Plan your trip with hours, tickets, rules, and helpful tips for a safe zoo experience.</p>
+        </div>
+        <div class="visitor-grid">
+          <article class="visitor-card">
+            <h4>Opening Hours</h4>
+            <ul class="visitor-list">
+              <li><strong>Daily</strong><span>9:00 AM – 7:00 PM</span></li>
+              <li><strong>Last Entry</strong><span>6:15 PM</span></li>
+            </ul>
+          </article>
+          <article class="visitor-card">
+            <h4>Ticket Prices</h4>
+            <ul class="visitor-list">
+              <li><strong>Adult</strong><span>$25</span></li>
+              <li><strong>Child</strong><span>$15</span></li>
+              <li><strong>Senior</strong><span>$18</span></li>
+              <li><strong>Family</strong><span>$65</span></li>
+            </ul>
+          </article>
+          <article class="visitor-card">
+            <h4>Location</h4>
+            <p>123 Greenway Avenue, Nature City. Easy access from main roads and public transport.</p>
+          </article>
+          <article class="visitor-card">
+            <h4>Rules</h4>
+            <ul class="visitor-list">
+              <li><strong>Do not feed</strong><span>Animals receive special diets.</span></li>
+              <li><strong>Stay behind barriers</strong><span>For safety and comfort.</span></li>
+              <li><strong>No loud noises</strong><span>Keep stress low for animals.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-heading">
+          <div class="divider"></div>
+          <h2>Frequently Asked Questions</h2>
+          <p>Common visitor questions answered clearly and quickly.</p>
+        </div>
+        <div class="faq-grid">
+          <details>
+            <summary>What are the zoo opening hours?</summary>
+            <p>The zoo is open every day from 9:00 AM to 7:00 PM with last entry at 6:15 PM.</p>
+          </details>
+          <details>
+            <summary>Can I buy tickets online?</summary>
+            <p>Yes, tickets can be purchased online for faster entry and discounted family passes.</p>
+          </details>
+          <details>
+            <summary>Is the zoo wheelchair accessible?</summary>
+            <p>Yes, the zoo offers wheelchair-accessible paths, parking, and restrooms.</p>
+          </details>
+          <details>
+            <summary>Are pets allowed?</summary>
+            <p>Pets are not permitted, except for certified service animals.</p>
+          </details>
+          <details>
+            <summary>Is photography allowed?</summary>
+            <p>Personal photography is welcome. Please avoid flash and respect animal comfort.</p>
+          </details>
+          <details>
+            <summary>Can I bring outside food?</summary>
+            <p>Outside food is permitted only in designated picnic areas. Do not feed animals.</p>
+          </details>
+          <details>
+            <summary>Do you offer guided tours?</summary>
+            <p>Guided tours are available on weekends and during school holidays. Book in advance.</p>
+          </details>
+          <details>
+            <summary>What safety measures do you follow?</summary>
+            <p>We monitor animal welfare, maintain clean barriers, and provide first aid support on site.</p>
+          </details>
+          <details>
+            <summary>Are school visits available?</summary>
+            <p>Yes, educational programs and group discounts are available for school visits.</p>
+          </details>
+          <details>
+            <summary>How can I support conservation?</summary>
+            <p>Support our zoo through donations, membership, volunteering, and spreading awareness.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <div class="divider"></div>
+          <h2>Contact & Visit</h2>
+          <p>Reach out with questions, booking requests, or conservation partnership inquiries.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-panel">
+            <article class="contact-card">
+              <h3>Address</h3>
+              <p>123 Greenway Avenue, Nature City, Countryland</p>
+            </article>
+            <article class="contact-card">
+              <h3>Phone</h3>
+              <p>+1 (234) 567-890</p>
+            </article>
+            <article class="contact-card">
+              <h3>Email</h3>
+              <p>info@wildrootszoo.com</p>
+            </article>
+            <article class="contact-card">
+              <h3>Opening Hours</h3>
+              <p>Monday – Sunday: 9:00 AM to 7:00 PM</p>
+            </article>
+          </div>
+          <form class="contact-form" action="#" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required />
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us how we can help" required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-card">
+          <h3>WildRoots Zoo</h3>
+          <p>Experience wildlife conservation, education, and immersive habitats designed to inspire every visitor.</p>
+        </div>
+        <div class="footer-card">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#animals">Featured Animals</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-card">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#">🐦 Twitter</a></li>
+            <li><a href="#">📸 Instagram</a></li>
+            <li><a href="#">👍 Facebook</a></li>
+            <li><a href="#">🎥 YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 WildRoots Zoo. All rights reserved.</p>
+        <a href="#home">Back to Top ↑</a>
+      </div>
+    </div>
+  
+  </footer>
+</body>
+</html>
+```

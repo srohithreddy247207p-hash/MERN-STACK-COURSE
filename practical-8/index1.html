@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>specificity</title>
+    <style>
+        h1{
+            background-color: aquamarine;
+        } 
+        #h1{
+            background-color: beige;
+        }
+        .yellow{
+            background-color: bisque;
+        }
+        .red h1{
+            background-color: black;
+        }
+        .yellow h1{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body><div>
+    <h1 class="yellow red purple" id="h1" style="background-color: salmon ;">Css specificity</h1>
+    </div>
+</body>
+</html>

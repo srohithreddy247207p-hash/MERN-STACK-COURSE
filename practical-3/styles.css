@@ -1,0 +1,14 @@
+td,th{
+    border: 1px solid aliceblue;
+}
+
+body{
+    background-color: #000000;
+    color: aliceblue;
+background-image: url('https://th.bing.com/th/id/OIP.ZKtwuOmCSK99SEOv4e77rAHaKX?w=203&h=283&c=7&r=0&o=7&pid=1.7&rm=3');
+     background-size: cover;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+
+    
+}
