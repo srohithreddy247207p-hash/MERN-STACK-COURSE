@@ -1,0 +1,86 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+html,body{
+  height: 100%;
+  width: 100%;
+  background-color: aliceblue;
+  box-sizing: border-box;
+}
+.card{
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid black;
+  height: 330px;
+  width: 250px;
+  margin: 20px;
+  border-radius: 20px;
+  justify-content: space-between;
+}
+.card .top{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.top img{
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.top button{
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: transparent;
+  font-weight: 200;
+  padding: 2px 2px;
+}
+.center h3{
+  font-size: 16px;
+  font-weight: 500;}
+  .center span{
+  color: rgb(179, 171, 171);
+}
+.center .tag{
+  display: flex;
+  margin-top: 10px;
+  gap: 5px;
+}
+.center .tag h4{
+  font-size: 15px;
+  font-weight: 500;
+  color: #202020;
+  background-color: grey;
+  padding: 4px 8px;
+  border-radius: 3px;
+  margin-bottom: 70px;
+}
+.bottom {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  padding: 5px;
+  justify-content: space-between;
+  border-top: 1.5px solid black;
+}
+.bottom button{
+  padding: 7px 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: aliceblue;
+}
+.bottom h3{
+  font-size: 17px;
+  font-weight:800;
+  margin-bottom: 4px;
+}
+.bottom{
+  font-size: 15px;
+  padding-top: 30px;
+}
+
