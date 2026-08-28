@@ -5,9 +5,13 @@ const App = () => {
   return (
     <div>
       <Navbar/> 
+      
+      <Card/>
+      <Card/>
       <Card/>
     </div>
   )
 }
 
 export default App
+ 
